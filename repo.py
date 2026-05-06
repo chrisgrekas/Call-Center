@@ -24,7 +24,25 @@ def write_data_to_json(new_call):
     with open(file_path,'w',encoding='utf-8') as file:
         json.dump(data,file,indent=4,ensure_ascii=False)
 
+
+    
+
+
 data=read_data_from_json()
+def update_data_to_json(data,updated_call):
+    upd_call=(updated_call.__dict__)
+    for i, call in enumerate(data):
+        if call["id"] == upd_call["id"]:
+            data[i] = upd_call
+            base_dir = os.path.dirname(os.path.abspath(__file__))
+            file_path = os.path.join(base_dir,'calls.json')
+            with open(file_path,'w',encoding='utf-8') as file:
+                json.dump(data,file,indent=4,ensure_ascii=False)
+            return upd_call
+    return None
+            
+
+
 
 def dict_to_call(data):
     calls=[]
