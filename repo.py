@@ -31,6 +31,8 @@ def write_data_to_json(new_call):
 data=read_data_from_json()
 def update_data_to_json(data,updated_call):
     upd_call=(updated_call.__dict__)
+    upd_call["from"] = upd_call.pop("from_")
+    upd_call["to"] = upd_call.pop("to_")
     for i, call in enumerate(data):
         if call["id"] == upd_call["id"]:
             data[i] = upd_call

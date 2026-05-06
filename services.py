@@ -20,4 +20,5 @@ def archive_call(call_id):
             return call
     return None
         
-print(archive_call("1"))
+print(archive_call("2"))
+print(get_all_calls())

@@ -11,7 +11,7 @@ class Call:
 
     def __repr__(self):
         return (f"Call(id='{self.id}', direction='{self.direction}', "
-                f"from='{self.from_}', to='{self.to_}', type='{self.call_type}', "
+                f"  type='{self.call_type}', "
                 f"duration={self.duration}, archived={self.is_archived})")
 
 class Note:
