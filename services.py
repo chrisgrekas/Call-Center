@@ -1,5 +1,6 @@
 from repo import dict_to_call,read_data_from_json,update_data_to_json
 from models import Note
+from validators import validate_call_types,validate_direction
 import uuid
 
 def get_all_calls():
@@ -54,6 +55,11 @@ def add_note_to_call(call_id,content):
 
 
 def filter_calls(call_type=None, direction=None, is_archived=None):
+    if call_type is not None:
+        validate_call_types(call_type)
+    if direction is not None:
+        validate_direction(direction)
+
     data=read_data_from_json()
     calls=dict_to_call(data)
     filter_calls_list=[]
