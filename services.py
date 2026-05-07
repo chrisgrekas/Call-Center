@@ -19,6 +19,16 @@ def archive_call(call_id):
             update_data_to_json(data,call)
             return call
     return None
-        
-print(archive_call("2"))
-print(get_all_calls())
+
+def get_call_by_id(call_id):
+    data=read_data_from_json()
+    calls=dict_to_call(data)
+    for call in calls:
+        if call.id==call_id:
+            return call
+    return None
+
+print(get_call_by_id("1"))
+print(get_call_by_id("999")) 
+# print(archive_call("2"))
+# print(get_all_calls())
