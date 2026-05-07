@@ -28,5 +28,15 @@ def get_call_by_id(call_id):
             return call
     return None
 
+def unarchive_call(call_id):
+    data=read_data_from_json()
+    calls=dict_to_call(data)
+    for call in calls:
+        if call_id==call.id:
+            call.is_archived=False
+            update_data_to_json(data,call)
+            return call
+    return None
+
 # print(get_call_by_id("4"))
 

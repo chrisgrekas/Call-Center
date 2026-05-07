@@ -13,7 +13,7 @@ class Call:
     def __repr__(self):
         return (f"Call(id='{self.id}', direction='{self.direction}', "
                 f"  type='{self.call_type}', "
-                f"duration={self.duration}, archived={self.is_archived}),notes={self.notes})")
+                f"duration={self.duration}, archived={self.is_archived},notes={self.notes})")
 
 class Note:
     def __init__(self,id,call_id,content):
