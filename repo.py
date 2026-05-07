@@ -1,6 +1,6 @@
 import json
 import os
-from models import Call
+from models import Call,Note
 
 def read_data_from_json():
     base_dir = os.path.dirname(os.path.abspath(__file__))
@@ -30,7 +30,6 @@ def write_data_to_json(new_call):
 
 data=read_data_from_json()
 def update_data_to_json(data,updated_call):
-    upd_call=(updated_call.__dict__)
     upd_call = dict(updated_call.__dict__)
     upd_call["from"] = upd_call.pop("from_")
     upd_call["to"] = upd_call.pop("to_")
@@ -50,7 +49,16 @@ def update_data_to_json(data,updated_call):
 def dict_to_call(data):
     calls=[]
     for call in data:
-        call_to_obj=Call(call["id"],call["direction"],call["from"],call["to"],call["call_type"],call["duration"],call["is_archived"],call["created_at"])
+        notes_of_call=[]
+        for note in call.get("notes",[]):
+            note_obj=Note(note["id"],call["id"],note["content"])
+            notes_of_call.append(note_obj)
+
+
+
+
+
+        call_to_obj=Call(call["id"],call["direction"],call["from"],call["to"],call["call_type"],call["duration"],call["is_archived"],call["created_at"],notes=notes_of_call)
         calls.append(call_to_obj)
     return calls
     

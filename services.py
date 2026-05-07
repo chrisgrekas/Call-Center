@@ -28,7 +28,5 @@ def get_call_by_id(call_id):
             return call
     return None
 
-# print(get_call_by_id("1"))
-# print(get_call_by_id("999")) 
-print(archive_call("5"))
-# print(get_all_calls())
+# print(get_call_by_id("4"))
+

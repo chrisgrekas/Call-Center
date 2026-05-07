@@ -80,13 +80,13 @@
     {
         "id": "7",
         "direction": "outbound",
-        "from": "+33 1 23 45 67 89",
-        "to": "+33 7 33 44 55 66",
         "call_type": "voicemail",
         "duration": 30,
-        "is_archived": false,
+        "is_archived": true,
         "created_at": "2025-04-08T10:15:00Z",
-        "notes": []
+        "notes": [],
+        "from": "+33 1 23 45 67 89",
+        "to": "+33 7 33 44 55 66"
     },
     {
         "id": "8",
