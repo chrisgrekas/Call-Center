@@ -1,4 +1,6 @@
 from repo import dict_to_call,read_data_from_json,update_data_to_json
+from models import Note
+import uuid
 
 def get_all_calls():
     data=read_data_from_json()
@@ -37,6 +39,19 @@ def unarchive_call(call_id):
             update_data_to_json(data,call)
             return call
     return None
+
+def add_note_to_call(call_id,content):
+    data=read_data_from_json()
+    calls=dict_to_call(data)
+    note_id=str(uuid.uuid4())
+    new_note=Note(note_id,call_id,content)
+    for call in calls:
+        if call.id==call_id:
+            call.notes.append(new_note)
+            update_data_to_json(data,call)
+            return call
+    return None
+
 
 # print(get_call_by_id("4"))
 

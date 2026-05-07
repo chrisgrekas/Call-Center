@@ -38,8 +38,6 @@
     {
         "id": "4",
         "direction": "outbound",
-        "from": "+33 1 23 45 67 89",
-        "to": "+33 6 11 22 33 44",
         "call_type": "answered",
         "duration": 340,
         "is_archived": false,
@@ -47,9 +45,22 @@
         "notes": [
             {
                 "id": "note-2",
+                "call_id": "4",
                 "content": "Discussed contract renewal for next quarter"
+            },
+            {
+                "id": "cd4bfcee-affe-4ff5-acb2-522feaaea47c",
+                "call_id": "4",
+                "content": "Test note content"
+            },
+            {
+                "id": "05bb5418-d88c-4db9-9f9a-71cd06a38c96",
+                "call_id": "4",
+                "content": "Test note content"
             }
-        ]
+        ],
+        "from": "+33 1 23 45 67 89",
+        "to": "+33 6 11 22 33 44"
     },
     {
         "id": "5",
