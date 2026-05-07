@@ -53,5 +53,14 @@ def add_note_to_call(call_id,content):
     return None
 
 
-# print(get_call_by_id("4"))
+def filter_calls(call_type=None, direction=None, is_archived=None):
+    data=read_data_from_json()
+    calls=dict_to_call(data)
+    filter_calls_list=[]
+    for call in calls:
+        if (call_type is None or call.call_type==call_type) and (direction is None or call.direction==direction) and (is_archived is None or call.is_archived==is_archived):
+            filter_calls_list.append(call)
+    return filter_calls_list
+        
+        
 
