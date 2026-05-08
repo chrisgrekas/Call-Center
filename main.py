@@ -42,4 +42,12 @@ from services.services import get_all_calls,get_call_by_id,archive_call,unarchiv
 #     print(filter_calls(is_archived=1))
 # except TypeError as e:
 #     print(f"Error: {e}")
-print(create_call("inbound", "2101010101", "6900000000", "answered", 10, False))
+
+# try:
+#     print(create_call("inbound", "2101010101", "6900000000", "answered", 10, False))
+# except ValueError as e:
+#     print(f"Error: {e}")
+# try:
+#     print(create_call("inbound", "210101010", "690000000", "answered", 10, False))
+# except ValueError as e:
+#     print(f"Error: {e}")

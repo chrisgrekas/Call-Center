@@ -212,5 +212,16 @@
         "notes": [],
         "from": "2101010101",
         "to": "6900000000"
+    },
+    {
+        "id": "525f49af-386d-41ad-9127-997212a47854",
+        "direction": "inbound",
+        "call_type": "answered",
+        "duration": 10,
+        "is_archived": false,
+        "created_at": "2026-05-08T20:51:16.685729+00:00",
+        "notes": [],
+        "from": "2101010101",
+        "to": "6900000000"
     }
 ]
