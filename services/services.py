@@ -1,6 +1,6 @@
-from repo import dict_to_call,read_data_from_json,update_data_to_json
-from models import Note
-from validators import validate_call_types,validate_direction,validate_call_id,validate_is_archived
+from repositories.repo import dict_to_call,read_data_from_json,update_data_to_json
+from models.models import Note
+from validators.validators import validate_call_types,validate_direction,validate_call_id,validate_is_archived
 import uuid
 
 def get_all_calls():
@@ -47,7 +47,7 @@ def unarchive_call(call_id):
 def add_note_to_call(call_id,content):
     data=read_data_from_json()
     calls=dict_to_call(data)
-    validate_call_id(call_id,call)
+    validate_call_id(call_id,calls)
     note_id=str(uuid.uuid4())
     new_note=Note(note_id,call_id,content)
     for call in calls:

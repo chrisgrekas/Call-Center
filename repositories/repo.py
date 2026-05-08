@@ -1,10 +1,10 @@
 import json
 import os
-from models import Call,Note
+from models.models import Call,Note
 
 def read_data_from_json():
     base_dir = os.path.dirname(os.path.abspath(__file__))
-    file_path = os.path.join(base_dir, 'calls.json')
+    file_path = os.path.join(base_dir, '..', 'data', 'calls.json') 
     with open(file_path, 'r', encoding='utf-8') as file:
         data = json.load(file)
     return data
