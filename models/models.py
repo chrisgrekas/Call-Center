@@ -23,19 +23,3 @@ class Note:
     def __repr__(self):
         return f"Note(id='{self.id}', call_id='{self.call_id}', content='{self.content}')"
 
-
-# test_call = Call(
-#     id="1",
-#     direction="inbound",
-#     from_="+33 6 12 34 56 78",
-#     to_="+33 1 23 45 67 89",
-#     call_type="answered",
-#     duration=120,
-#     is_archived=False,
-#     created_at="2025-04-10T14:32:00Z"
-# )
-
-# print(test_call)
-# # test_note = note(id="n1", call_id="3", content="Customer left a message about their invoice")
-# print(test_note)
-

@@ -1,4 +1,4 @@
-from services.services import get_all_calls,get_call_by_id,archive_call,unarchive_call,add_note_to_call,filter_calls
+from services.services import get_all_calls,get_call_by_id,archive_call,unarchive_call,add_note_to_call,filter_calls,create_call
 
 # Uncomment to test every case
 # print(get_all_calls())
@@ -42,3 +42,4 @@ from services.services import get_all_calls,get_call_by_id,archive_call,unarchiv
 #     print(filter_calls(is_archived=1))
 # except TypeError as e:
 #     print(f"Error: {e}")
+print(create_call("inbound", "2101010101", "6900000000", "answered", 10, False))

@@ -15,7 +15,7 @@ Loads call data from a JSON file and exposes functions to manage calls:
 
 - Python 3
 - No external dependencies
-
+ 
 ## How to run
 
 ```bash

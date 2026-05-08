@@ -201,5 +201,16 @@
                 "content": "Confirmed appointment for product demo next week"
             }
         ]
+    },
+    {
+        "id": "5f47ccad-40af-4884-a2dd-0bc2347ca01a",
+        "direction": "inbound",
+        "call_type": "answered",
+        "duration": 10,
+        "is_archived": false,
+        "created_at": "2026-05-08T20:35:03.429585+00:00",
+        "notes": [],
+        "from": "2101010101",
+        "to": "6900000000"
     }
 ]
