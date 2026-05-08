@@ -12,7 +12,15 @@ from services import get_all_calls,get_call_by_id,archive_call,unarchive_call,ad
 # print(filter_calls(direction="inbound"))
 # print(filter_calls(call_type="answered", direction="outbound"))
 # print(filter_calls(is_archived=True))
+# try:
+#     print(filter_calls(direction="wrong"))
+# except ValueError as e:
+#     print(f"Error: {e}")
+# try:
+#     print(archive_call(call_id="8"))
+# except ValueError as e:
+#     print(f"Error  : {e}")
 try:
-    print(filter_calls(call_type="wrong"))
-except ValueError as e:
+    print(filter_calls(is_archived=True))
+except TypeError as e:
     print(f"Error: {e}")

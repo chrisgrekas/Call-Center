@@ -8,3 +8,13 @@ def validate_direction(direction):
         return direction
     else:
         raise ValueError(f"Invalid: {direction}. Please enter a valid direction.(inbound,outbound)")
+def validate_call_id(call_id,calls):
+    for call in calls:
+        if call.id==call_id:
+            return call_id
+    raise ValueError(f"Invalid call id.This Call id does not exist.")
+def validate_is_archived(is_archived):
+    if isinstance(is_archived,bool):
+        return is_archived
+    else:
+        raise TypeError(f"Invalid choice.The variable is_archived can only be true or false.")
