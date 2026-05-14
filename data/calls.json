@@ -22,18 +22,19 @@
     {
         "id": "3",
         "direction": "inbound",
-        "from": "+33 7 55 44 33 22",
-        "to": "+33 1 23 45 67 89",
         "call_type": "voicemail",
         "duration": 45,
-        "is_archived": true,
+        "is_archived": false,
         "created_at": "2025-04-09T09:15:00Z",
         "notes": [
             {
                 "id": "note-1",
+                "call_id": "3",
                 "content": "Customer left a message about their invoice"
             }
-        ]
+        ],
+        "from": "+33 7 55 44 33 22",
+        "to": "+33 1 23 45 67 89"
     },
     {
         "id": "4",
@@ -47,16 +48,6 @@
                 "id": "note-2",
                 "call_id": "4",
                 "content": "Discussed contract renewal for next quarter"
-            },
-            {
-                "id": "cd4bfcee-affe-4ff5-acb2-522feaaea47c",
-                "call_id": "4",
-                "content": "Test note content"
-            },
-            {
-                "id": "05bb5418-d88c-4db9-9f9a-71cd06a38c96",
-                "call_id": "4",
-                "content": "Test note content"
             }
         ],
         "from": "+33 1 23 45 67 89",
@@ -201,27 +192,5 @@
                 "content": "Confirmed appointment for product demo next week"
             }
         ]
-    },
-    {
-        "id": "5f47ccad-40af-4884-a2dd-0bc2347ca01a",
-        "direction": "inbound",
-        "call_type": "answered",
-        "duration": 10,
-        "is_archived": false,
-        "created_at": "2026-05-08T20:35:03.429585+00:00",
-        "notes": [],
-        "from": "2101010101",
-        "to": "6900000000"
-    },
-    {
-        "id": "525f49af-386d-41ad-9127-997212a47854",
-        "direction": "inbound",
-        "call_type": "answered",
-        "duration": 10,
-        "is_archived": false,
-        "created_at": "2026-05-08T20:51:16.685729+00:00",
-        "notes": [],
-        "from": "2101010101",
-        "to": "6900000000"
     }
 ]

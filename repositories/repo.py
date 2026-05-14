@@ -28,7 +28,7 @@ def write_data_to_json(new_call):
     
 
 
-data=read_data_from_json()
+
 def update_data_to_json(data,updated_call):
     upd_call = dict(updated_call.__dict__)
     upd_call["from"] = upd_call.pop("from_")
@@ -38,7 +38,7 @@ def update_data_to_json(data,updated_call):
         if call["id"] == upd_call["id"]:
             data[i] = upd_call
             base_dir = os.path.dirname(os.path.abspath(__file__))
-            file_path = os.path.join(base_dir,'calls.json')
+            file_path = os.path.join(base_dir,'..','data','calls.json')
             with open(file_path,'w',encoding='utf-8') as file:
                 json.dump(data,file,indent=4,ensure_ascii=False)
             return upd_call

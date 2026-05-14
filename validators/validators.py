@@ -19,7 +19,8 @@ def validate_is_archived(is_archived):
     else:
         raise TypeError(f"Invalid choice.The variable is_archived can only be true or false.")
 def validate_phone_number(phone_number):
-    if len(phone_number)==10 and (phone_number.isdigit()) :
+    cleaned_phone_number=phone_number.replace('+','').replace(" ","")
+    if len(cleaned_phone_number)>=7 and len(cleaned_phone_number)<=15 and (cleaned_phone_number.isdigit()) :
         return phone_number
     else:
-        raise ValueError(f"The phone number has to be 10 digits.")
+        raise ValueError(f"The phone number has to be between 7 and 15 numbers.")
