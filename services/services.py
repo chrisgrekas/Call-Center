@@ -9,7 +9,7 @@ def get_all_calls():
     calls=dict_to_call(data)
     non_archived_calls=[]
     for call in calls:
-        if call.is_archived==False:
+        if not call.is_archived:
             non_archived_calls.append(call)
     return non_archived_calls
 
