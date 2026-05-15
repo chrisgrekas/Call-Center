@@ -1,52 +1,78 @@
-from services.services import get_all_calls, get_call_by_id, archive_call, unarchive_call, add_note_to_call, filter_calls, create_call
+from services.services import get_all_calls, get_call_by_id, archive_call, unarchive_call, add_note_to_call, filter_calls, create_call, call_to_dict
+from fastapi import FastAPI , HTTPException
+
+app=FastAPI()
+@app.get("/")
+def index():
+    return {"message": "Call Center. Please go to http://127.0.0.1:8000/docs to see the swagger"}
+@app.get("/health")
+def health():
+    return {"message": "The server is online"}
+@app.get("/calls")
+def get_calls():
+    return {"calls" :get_all_calls()}
+@app.get("/calls/{call_id}")
+def get_call_by_the_id(call_id:str):
+    try:
+        return call_to_dict(get_call_by_id(call_id))
+    except ValueError as e:
+        raise HTTPException(status_code=404, detail="Call not found")
+@app.patch("/calls/{call_id}/archive")
+def archive_call_by_id(call_id:str):
+    try:
+        return call_to_dict(archive_call(call_id))
+    except ValueError as e:
+        raise HTTPException(status_code=404 , detail="Something went wrong")
+
+    
 
 
-print(get_all_calls())
-try:
-    print(get_call_by_id("999"))
-except ValueError as e:
-    print(f"Error: {e}")
-print(add_note_to_call("4", "Test note content"))
-print(filter_calls(call_type="missed"))
-print(filter_calls(direction="inbound"))
-print(filter_calls(call_type="answered", direction="outbound"))
-try:
-    print(filter_calls(direction="wrong"))
-except ValueError as e:
-    print(f"Error: {e}")
-try:
-    print(archive_call(call_id="999"))
-except ValueError as e:
-    print(f"Error  : {e}")
-try:
-    print(filter_calls(is_archived=True))
-except TypeError as e:
-    print(f"Error: {e}")
+# print(get_all_calls())
+# try:
+#     print(get_call_by_id("999"))
+# except ValueError as e:
+#     print(f"Error: {e}")
+# print(add_note_to_call("4", "Test note content"))
+# print(filter_calls(call_type="missed"))
+# print(filter_calls(direction="inbound"))
+# print(filter_calls(call_type="answered", direction="outbound"))
+# try:
+#     print(filter_calls(direction="wrong"))
+# except ValueError as e:
+#     print(f"Error: {e}")
+# try:
+#     print(archive_call(call_id="999"))
+# except ValueError as e:
+#     print(f"Error  : {e}")
+# try:
+#     print(filter_calls(is_archived=True))
+# except TypeError as e:
+#     print(f"Error: {e}")
 
-print(unarchive_call("3"))
+# print(unarchive_call("3"))
 
-try:
-    print(unarchive_call("999"))
-except ValueError as e:
-    print(f"Error: {e}")
+# try:
+#     print(unarchive_call("999"))
+# except ValueError as e:
+#     print(f"Error: {e}")
 
-print(get_call_by_id("4"))
+# print(get_call_by_id("4"))
 
-try:
-    print(add_note_to_call("999", "Test note"))
-except ValueError as e:
-    print(f"Error: {e}")
+# try:
+#     print(add_note_to_call("999", "Test note"))
+# except ValueError as e:
+#     print(f"Error: {e}")
 
-try:
-    print(filter_calls(is_archived=1))
-except TypeError as e:
-    print(f"Error: {e}")
+# try:
+#     print(filter_calls(is_archived=1))
+# except TypeError as e:
+#     print(f"Error: {e}")
 
-try:
-    print(create_call("inbound", "2101010101", "6900000000", "answered", 10, False))
-except ValueError as e:
-    print(f"Error: {e}")
-try:
-    print(create_call("inbound", "210", "690", "answered", 10, False))
-except ValueError as e:
-    print(f"Error: {e}")
+# try:
+#     print(create_call("inbound", "2101010101", "6900000000", "answered", 10, False))
+# except ValueError as e:
+#     print(f"Error: {e}")
+# try:
+#     print(create_call("inbound", "210", "690", "answered", 10, False))
+# except ValueError as e:
+#     print(f"Error: {e}")

@@ -10,8 +10,9 @@ def get_all_calls():
     non_archived_calls = []
     for call in calls:
         if not call.is_archived:
-            non_archived_calls.append(call)
+            non_archived_calls.append(call_to_dict(call))
     return non_archived_calls
+
 
 
 def archive_call(call_id):
@@ -88,3 +89,10 @@ def create_call(direction, from_, to_, call_type, duration, is_archived):
     new_call_dict["to"] = new_call_dict.pop("to_")
     write_data_to_json(new_call_dict)
     return new_call
+
+def call_to_dict(calls):
+    new_call_dict = dict(calls.__dict__)
+    new_call_dict["from"] = new_call_dict.pop("from_")
+    new_call_dict["to"] = new_call_dict.pop("to_")
+    
+    return new_call_dict
