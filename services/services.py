@@ -94,5 +94,4 @@ def call_to_dict(calls):
     new_call_dict = dict(calls.__dict__)
     new_call_dict["from"] = new_call_dict.pop("from_")
     new_call_dict["to"] = new_call_dict.pop("to_")
-    
     return new_call_dict

@@ -1,5 +1,6 @@
 from services.services import get_all_calls, get_call_by_id, archive_call, unarchive_call, add_note_to_call, filter_calls, create_call, call_to_dict
 from fastapi import FastAPI , HTTPException
+from pydantic import BaseModel
 
 app=FastAPI()
 @app.get("/")
@@ -9,22 +10,44 @@ def index():
 def health():
     return {"message": "The server is online"}
 @app.get("/calls")
-def get_calls():
-    return {"calls" :get_all_calls()}
+def get_calls(call_type: str = None, direction: str = None, is_archived: bool = None):
+    if call_type == None and direction==None and is_archived==None:
+        return {"calls" :get_all_calls()}
+    else:
+        try:
+            return {"calls": [call_to_dict(call) for call in filter_calls(call_type, direction, is_archived)]}
+        except ValueError as e:
+            raise HTTPException(status_code=404 , detail= "Something went wrong")
+        except TypeError as e:
+            raise HTTPException(status_code=404 , detail= "Something went wrong")
 @app.get("/calls/{call_id}")
 def get_call_by_the_id(call_id:str):
     try:
         return call_to_dict(get_call_by_id(call_id))
     except ValueError as e:
-        raise HTTPException(status_code=404, detail="Call not found")
+        raise HTTPException(status_code= 404, detail="Call not found")
 @app.patch("/calls/{call_id}/archive")
 def archive_call_by_id(call_id:str):
     try:
         return call_to_dict(archive_call(call_id))
     except ValueError as e:
-        raise HTTPException(status_code=404 , detail="Something went wrong")
+        raise HTTPException(status_code= 404 , detail="Something went wrong")
 
-    
+@app.patch("/calls/{call_id}/unarchive")
+def unarchive_call_by_id(call_id:str):
+    try:
+        return call_to_dict(unarchive_call(call_id))
+    except ValueError as e:
+        raise HTTPException(status_code= 404 , detail="Something went wrong")
+class NoteRequest(BaseModel):
+    content: str
+@app.post("/calls/{call_id}/notes")
+def add_node(call_id: str , note : NoteRequest):
+    try:
+        return call_to_dict(add_note_to_call(call_id,note.content))
+    except ValueError as e:
+        raise HTTPException(status_code= 404 , detail="Something went wrong")
+
 
 
 # print(get_all_calls())

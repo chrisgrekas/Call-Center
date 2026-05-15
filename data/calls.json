@@ -16,6 +16,13 @@
         "duration": 0,
         "is_archived": true,
         "created_at": "2025-04-10T15:10:00Z",
+        "notes": [
+            {
+                "id": "41a905f4-d0ec-43af-a4a2-478052ea871e",
+                "call_id": "2",
+                "content": "Hello"
+            }
+        ],
         "from": "+33 1 23 45 67 89",
         "to": "+33 6 98 76 54 32"
     },
@@ -24,7 +31,7 @@
         "direction": "inbound",
         "call_type": "voicemail",
         "duration": 45,
-        "is_archived": true,
+        "is_archived": false,
         "created_at": "2025-04-09T09:15:00Z",
         "notes": [
             {
