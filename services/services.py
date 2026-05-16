@@ -1,6 +1,6 @@
 from repositories.repo import dict_to_call, read_data_from_json, update_data_to_json, write_data_to_json
 from models.models import Call, Note
-from validators.validators import validate_call_types, validate_direction, validate_call_id, validate_is_archived, validate_phone_number
+from validators.validators import validate_call_types, validate_direction, validate_call_id, validate_is_archived, validate_phone_number , validate_duration
 import uuid
 from datetime import datetime, timezone
 
@@ -83,6 +83,7 @@ def create_call(direction, from_, to_, call_type, duration, is_archived):
     validate_is_archived(is_archived)
     validate_phone_number(from_)
     validate_phone_number(to_)
+    validate_duration(duration)
     new_call = Call(call_id, direction, from_, to_, call_type, duration, is_archived, created_at)
     new_call_dict = dict(new_call.__dict__)
     new_call_dict["from"] = new_call_dict.pop("from_")

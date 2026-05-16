@@ -48,6 +48,21 @@ def add_node(call_id: str , note : NoteRequest):
     except ValueError as e:
         raise HTTPException(status_code= 404 , detail="Something went wrong")
 
+class CreateCallBody(BaseModel):
+    direction: str
+    from_: str
+    to_: str
+    call_type: str
+    duration: int
+    is_archived: bool
+@app.post("/calls/create_call")
+def createCall(body : CreateCallBody):
+    try:
+        return call_to_dict(create_call(body.direction , body.from_, body.to_ , body.call_type , body.duration , body.is_archived))
+    except ValueError as e:
+        raise HTTPException(status_code=404 , detail="Something went wrong")
+
+
 
 
 # print(get_all_calls())
