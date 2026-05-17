@@ -12,7 +12,10 @@ from starlette.requests import Request
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
-    filename="logs.txt"
+    handlers=[
+        logging.FileHandler("logs.txt"),
+        logging.StreamHandler()
+    ]
 )
 logger = logging.getLogger(__name__)
 
