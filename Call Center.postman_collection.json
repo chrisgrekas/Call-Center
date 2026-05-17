@@ -1,0 +1,169 @@
+{
+  "info": {
+    "_postman_id": "c5c4fc03-78f4-4d5b-a6dc-7f8a8548a63c",
+    "name": "Call Center",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "54144172",
+    "_collection_link": "https://go.postman.co/collection/54144172-c5c4fc03-78f4-4d5b-a6dc-7f8a8548a63c?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "GetCalls",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/calls",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "calls"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GetCallById",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/calls/{{call_id}}",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "calls",
+            "{{call_id}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "ArchiveCall",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/calls/{{call_id}}/archive",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "calls",
+            "{{call_id}}",
+            "archive"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "UnarchiveCall",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/calls/{{call_id}}/unarchive",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "calls",
+            "{{call_id}}",
+            "unarchive"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "AddNote",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"content\": \"Add your note here\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/calls/{{call_id}}/notes",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "calls",
+            "{{call_id}}",
+            "notes"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "CreateCall",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"direction\": \"inbound\",\r\n  \"from_\": \"+30 276 10 23 0 48\",\r\n  \"to_\": \"+30 276 10 23 0 58\",\r\n  \"call_type\": \"answered\",\r\n  \"duration\": 5,\r\n  \"is_archived\": false\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/calls/create_call",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "calls",
+            "create_call"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

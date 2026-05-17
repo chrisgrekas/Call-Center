@@ -1,0 +1,8 @@
+2026-05-17 21:47:41,483 - main - INFO - GET /calls 200 0.00s
+2026-05-17 21:48:01,038 - main - INFO - POST /calls/726a6265-c6c1-4640-9922-5ea21d250/notes 404 0.00s
+2026-05-17 21:52:11,161 - main - INFO - POST /calls/726a6265-c6c1-4640-9922-5ea21d250/notes 404 0.00s
+2026-05-17 21:52:43,488 - main - INFO - POST /calls/726a6265-c6c1-4640-9922-5ea21d250bc2/notes 200 0.00s
+2026-05-17 21:58:17,470 - main - WARNING - Call 726a6265-c6c1-4640--5ea21d250bc2 not found
+2026-05-17 21:58:17,472 - main - INFO - POST /calls/726a6265-c6c1-4640--5ea21d250bc2/notes 404 0.01s
+2026-05-17 22:00:23,409 - main - WARNING - Invalid Body
+2026-05-17 22:00:23,411 - main - INFO - POST /calls/create_call 400 0.01s
