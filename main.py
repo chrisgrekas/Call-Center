@@ -2,9 +2,31 @@ from services.services import get_all_calls, get_call_by_id, archive_call, unarc
 from pydantic import BaseModel
 from fastapi import FastAPI , HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+import logging
+import time
+from starlette.middleware.base import BaseHTTPMiddleware
+from starlette.requests import Request
 
 
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    filename="logs.txt"
+)
+logger = logging.getLogger(__name__)
+
+class LoggingMiddleware(BaseHTTPMiddleware):
+    async def dispatch(self, request: Request, call_next):
+        start_time = time.time()
+        response = await call_next(request)
+        duration = time.time() - start_time
+        logger.info(f"{request.method} {request.url.path} {response.status_code} {duration:.2f}s")
+        return response
 app = FastAPI()
+app.add_middleware(LoggingMiddleware)
+
+
 origins = [
     "http://localhost:3000",
 ]
