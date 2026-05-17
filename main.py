@@ -63,12 +63,14 @@ def get_call_by_the_id(call_id:str):
     try:
         return call_to_dict(get_call_by_id(call_id))
     except ValueError as e:
+        logger.warning(f"Call {call_id} not found")
         raise HTTPException(status_code= 404, detail="Call not found")
 @app.patch("/calls/{call_id}/archive")
 def archive_call_by_id(call_id:str):
     try:
         return call_to_dict(archive_call(call_id))
     except ValueError as e:
+        logger.warning(f"Call {call_id} not found")
         raise HTTPException(status_code= 404 , detail="Something went wrong")
 
 @app.patch("/calls/{call_id}/unarchive")
@@ -76,6 +78,7 @@ def unarchive_call_by_id(call_id:str):
     try:
         return call_to_dict(unarchive_call(call_id))
     except ValueError as e:
+        logger.warning(f"Call {call_id} not found")
         raise HTTPException(status_code= 404 , detail="Something went wrong")
 class NoteRequest(BaseModel):
     content: str
@@ -84,6 +87,7 @@ def add_node(call_id: str , note : NoteRequest):
     try:
         return call_to_dict(add_note_to_call(call_id,note.content))
     except ValueError as e:
+        logger.warning(f"Call {call_id} not found")
         raise HTTPException(status_code= 404 , detail="Something went wrong")
 
 class CreateCallBody(BaseModel):
@@ -98,4 +102,5 @@ def createCall(body : CreateCallBody):
     try:
         return call_to_dict(create_call(body.direction , body.from_, body.to_ , body.call_type , body.duration , body.is_archived))
     except ValueError as e:
-        raise HTTPException(status_code=404 , detail="Something went wrong")
+        logger.warning(f"Invalid Body")
+        raise HTTPException(status_code=400 , detail="Something went wrong")
