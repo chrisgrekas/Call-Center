@@ -3,8 +3,8 @@ from pydantic import BaseModel
 from fastapi import FastAPI , HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 
-app = FastAPI()
 
+app = FastAPI()
 origins = [
     "http://localhost:3000",
 ]
