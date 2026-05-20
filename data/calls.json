@@ -211,5 +211,33 @@
         "notes": [],
         "from": "+30 276 10 23 0 48",
         "to": "+30 276 10 23 0 58"
+    },
+    {
+        "id": "4515cf8a-35ae-499c-b155-d81697db1b81",
+        "direction": "inbound",
+        "call_type": "voicemail",
+        "duration": 0,
+        "is_archived": true,
+        "created_at": "2026-05-20T21:01:42.745023+00:00",
+        "notes": [],
+        "from": "+33 11 111 11",
+        "to": "+30 12 12 121 12"
+    },
+    {
+        "id": "1007d973-e3e7-47de-9d0c-cea33048acc1",
+        "direction": "inbound",
+        "call_type": "voicemail",
+        "duration": 0,
+        "is_archived": false,
+        "created_at": "2026-05-20T21:01:45.135418+00:00",
+        "notes": [
+            {
+                "id": "30690a08-9d36-4ffd-a89a-a3f30113e43b",
+                "call_id": "1007d973-e3e7-47de-9d0c-cea33048acc1",
+                "content": "Hello"
+            }
+        ],
+        "from": "+33 11 111 11",
+        "to": "+30 12 12 121 12"
     }
 ]
