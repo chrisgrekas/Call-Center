@@ -28,3 +28,9 @@ def validate_phone_number(phone_number):
         return phone_number
     else:
         raise ValueError(f"The phone number has to be between 7 and 15 digits.")
+
+def validate_duration(duration):
+    if duration>=0 :
+        return duration
+    else:
+        raise ValueError(f"Invalid duration.Please enter a valid duration")
