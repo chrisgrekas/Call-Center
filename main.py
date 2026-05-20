@@ -97,7 +97,7 @@ class CreateCallBody(BaseModel):
     call_type: str
     duration: int
     is_archived: bool
-@app.post("/calls/create_call")
+@app.post("/calls")
 def createCall(body : CreateCallBody):
     try:
         return call_to_dict(create_call(body.direction , body.from_, body.to_ , body.call_type , body.duration , body.is_archived))
