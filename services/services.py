@@ -91,8 +91,8 @@ def create_call(direction, from_, to_, call_type, duration, is_archived):
     write_data_to_json(new_call_dict)
     return new_call
 
-def call_to_dict(calls):
-    new_call_dict = dict(calls.__dict__)
+def call_to_dict(call):
+    new_call_dict = dict(call.__dict__)
     new_call_dict["from"] = new_call_dict.pop("from_")
     new_call_dict["to"] = new_call_dict.pop("to_")
     return new_call_dict
