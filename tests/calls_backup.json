@@ -263,16 +263,6 @@
                 "id": "62648180-4fb9-462f-80fc-fe51c2337a82",
                 "call_id": "3ff887f9-1812-4497-850e-3e41faaa0c56",
                 "content": "Hello DevReady Team"
-            },
-            {
-                "id": "d5f250a4-7c09-4193-88d4-95f9b7e1a151",
-                "call_id": "3ff887f9-1812-4497-850e-3e41faaa0c56",
-                "content": "Test Note"
-            },
-            {
-                "id": "9fdd6e40-4f8a-4547-a8d9-e9912c87593c",
-                "call_id": "3ff887f9-1812-4497-850e-3e41faaa0c56",
-                "content": "Test Note"
             }
         ],
         "from": "69 55 555 555",
@@ -318,39 +308,6 @@
         "duration": 0,
         "is_archived": true,
         "created_at": "2026-05-22T19:26:32.196179+00:00",
-        "notes": [],
-        "from": "69 55 555 556",
-        "to": "699 99 999 994"
-    },
-    {
-        "id": "f4333fa0-28bf-437a-973c-0aac8da33028",
-        "direction": "inbound",
-        "call_type": "missed",
-        "duration": 0,
-        "is_archived": true,
-        "created_at": "2026-05-22T20:08:52.038847+00:00",
-        "notes": [],
-        "from": "69 55 555 556",
-        "to": "699 99 999 994"
-    },
-    {
-        "id": "05789899-cfad-44de-b196-9acc73e36273",
-        "direction": "inbound",
-        "call_type": "missed",
-        "duration": 0,
-        "is_archived": true,
-        "created_at": "2026-05-22T20:09:30.519185+00:00",
-        "notes": [],
-        "from": "69 55 555 556",
-        "to": "699 99 999 994"
-    },
-    {
-        "id": "692efe19-4e5f-43c6-9993-bb5b7a725f0a",
-        "direction": "inbound",
-        "call_type": "missed",
-        "duration": 0,
-        "is_archived": true,
-        "created_at": "2026-05-22T20:10:16.353412+00:00",
         "notes": [],
         "from": "69 55 555 556",
         "to": "699 99 999 994"
