@@ -24,7 +24,7 @@ Loads call data from a JSON file and exposes APIs to manage calls:
 First, install the required dependencies:
 
 ```bash
-pip install fastapi uvicorn pydantic
+pip install -r requirements.txt
 ```
 
 Then, start the server:
@@ -35,7 +35,15 @@ uvicorn main:app --reload
 
 The API will be available at http://127.0.0.1:8000
 
-Swagger UI are available at http://127.0.0.1:8000/docs
+Swagger UI is available at http://127.0.0.1:8000/docs
+
+## Live demo
+
+https://call-center-rlc4.onrender.com
+
+## CI/CD
+
+This project uses GitHub Actions to run automated tests on every push and pull request to `main`.
 
 ## Endpoints
 
