@@ -43,7 +43,7 @@ app.add_middleware(
 )
 @app.get("/")
 def index():
-    return {"message": "Call Center. Please go to http://127.0.0.1:8000/docs to see the swagger"}
+    return {"message": "Call Center. Please go to https://call-center-rlc4.onrender.com/docs to see the swagger"}
 @app.get("/health")
 def health():
     return {"message": "The server is online"}
