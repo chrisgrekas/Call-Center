@@ -2,4 +2,4 @@ __pycache__/
 *.pyc
 logs.txt
 *.log
-*.json.postman_collection
+*.postman_collection.json
