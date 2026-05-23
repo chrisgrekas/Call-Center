@@ -5,7 +5,7 @@ def test_validate_call_types():
     assert validate_call_types(call_types="answered") == "answered"
     assert validate_call_types(call_types="missed") == "missed"
     assert validate_call_types(call_types="voicemail") == "voicemail"
-    with pytest.raises(ValueError, match=f"Invalid: test"):
+    with pytest.raises(ValueError, match=f"Invalid: test ςρονγ"):
         validate_call_types(call_types="test")
 
 def test_validate_direction():
