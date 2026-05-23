@@ -1,8 +1,9 @@
 name: CI
 
 on:
+  on:
   push:
-    branches: [main]
+    branches: [main, "Call-Center-(week-4)"]
   pull_request:
     branches: [main]
 
