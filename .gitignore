@@ -3,3 +3,4 @@ __pycache__/
 logs.txt
 *.log
 *.postman_collection.json
+/.idea/

@@ -1,4 +1,4 @@
-from services.services import get_all_calls, get_call_by_id, archive_call, unarchive_call, add_note_to_call, filter_calls, create_call, call_to_dict
+from services.services import get_all_calls, get_call_by_id, archive_call, unarchive_call, add_note_to_call, filter_calls, create_call, call_to_dict,update_note
 from pydantic import BaseModel
 from fastapi import FastAPI , HTTPException
 from fastapi.middleware.cors import CORSMiddleware
@@ -83,7 +83,7 @@ def unarchive_call_by_id(call_id:str):
 class NoteRequest(BaseModel):
     content: str
 @app.post("/calls/{call_id}/notes")
-def add_node(call_id: str , note : NoteRequest):
+def add_note(call_id: str , note : NoteRequest):
     try:
         return call_to_dict(add_note_to_call(call_id,note.content))
     except ValueError as e:
@@ -98,9 +98,21 @@ class CreateCallBody(BaseModel):
     duration: int
     is_archived: bool
 @app.post("/calls")
-def createCall(body : CreateCallBody):
+def create_call_route(body : CreateCallBody):
     try:
         return call_to_dict(create_call(body.direction , body.from_, body.to_ , body.call_type , body.duration , body.is_archived))
     except ValueError as e:
         logger.warning(f"Invalid Body")
         raise HTTPException(status_code=400 , detail=str(e))
+
+class UpdateNoteRequest(BaseModel):
+    content: str
+
+@app.patch("/calls/{call_id}/notes/{note_id}")
+def update_note_route(call_id: str, note_id: str, body: UpdateNoteRequest):
+    try:
+        note = update_note(call_id, note_id, body.content)
+        return {"id": note.id, "call_id": note.call_id, "content": note.content}
+    except ValueError as e:
+        logger.warning(f"Note {note_id} not found on call {call_id}")
+        raise HTTPException(status_code=404, detail=str(e))
