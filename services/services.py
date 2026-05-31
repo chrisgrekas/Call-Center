@@ -96,3 +96,21 @@ def call_to_dict(call):
     new_call_dict["from"] = new_call_dict.pop("from_")
     new_call_dict["to"] = new_call_dict.pop("to_")
     return new_call_dict
+
+def update_note(call_id, note_id, content):
+    data = read_data_from_json()
+    calls = dict_to_call(data)
+    validate_call_id(call_id, calls)
+    for call in calls:
+        if call.id == call_id:
+            for note in call.notes:
+                if note.id == note_id:
+                    note.content = content
+                    update_data_to_json(data, call)
+                    return note
+            raise ValueError(f"Note {note_id} not found")
+           
+
+
+
+
